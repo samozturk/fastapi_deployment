@@ -1,22 +1,14 @@
 # pylint: disable=missing-module-docstring, no-else-return, line-too-long
 #!/usr/bin/python3
 import os
-from dataclasses import dataclass
 
-from typing import Optional
-from typing import Dict, Any, AnyStr
 from pydantic.main import BaseModel
 import uvicorn
-from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse
-from fastapi.templating import Jinja2Templates
-from fastapi.staticfiles import StaticFiles
-from pathlib import Path
 import joblib
 import numpy as np
 
 
-app = FastAPI(title='My App')
+app = FastAPI(title='My ML App')
 
 
 @app.get("/")
