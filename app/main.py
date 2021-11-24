@@ -6,6 +6,7 @@ from pydantic.main import BaseModel
 import uvicorn
 import joblib
 import numpy as np
+from fastapi import FastAPI
 
 
 app = FastAPI(title='My ML App')
