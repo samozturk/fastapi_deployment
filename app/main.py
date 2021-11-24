@@ -32,11 +32,14 @@ class My_Data(BaseModel):
 
 @app.post("/predict")
 def predict(data:My_Data):
-    my_model = joblib.load('my_model')
+    my_model = joblib.load('app/my_model')
     X = np.array(data.X).reshape(-1, 1)
     return str(my_model.predict(X))
 
+@app.get("/check")
+def check():
+    return os.listdir()
 # Endpoint
 if __name__ == "__main__":
     # Changed it from app to 'main:app' to reload changes automatically.
-    uvicorn.run('main:app', host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run('main:app', host="0.0.0.0", port=8000, reload=True)
